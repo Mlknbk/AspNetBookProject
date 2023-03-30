@@ -20,7 +20,7 @@ namespace Library.Areas.Management.Controllers
        
         public IActionResult AuthorList()
         {
-            List<Author> authors = _repoAuthor.GetActives();
+            List<Author> authors = _repoAuthor.GetByFilter(x => x.Status != Enums.DataStatus.Deleted);
             return View(authors);
         }
 
